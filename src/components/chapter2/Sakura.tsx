@@ -18,6 +18,7 @@ export function Sakura() {
   return (
     <Particles
       id="tsparticles"
+      className={"h-screen"}
       options={{
         background: {
           color: {
@@ -28,11 +29,11 @@ export function Sakura() {
         interactivity: {
           events: {
             onClick: {
-              enable: true,
+              enable: false,
               mode: "push",
             },
             onHover: {
-              enable: true,
+              enable: false,
               mode: "repulse",
             },
           },
@@ -86,6 +87,11 @@ export function Sakura() {
           },
         },
         detectRetina: true,
+        fullScreen: false,
+        style: {
+          width: "100%",
+          height: "100%",
+        },
       }}
     />
   );

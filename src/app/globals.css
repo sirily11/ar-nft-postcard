@@ -5,3 +5,11 @@
 html {
     background-color: #00182e;
 }
+
+.gradient-sky {
+    background: #2980B9;
+    background: linear-gradient(
+            to top left,
+            #aedeff, #a2e7ff,#FFFFFF
+    );
+}

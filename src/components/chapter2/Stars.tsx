@@ -18,6 +18,7 @@ export function SkyFullOfStars() {
   return (
     <Particles
       id="stars"
+      className={"h-screen"}
       options={{
         background: {
           color: {
@@ -73,6 +74,7 @@ export function SkyFullOfStars() {
           },
         },
         detectRetina: true,
+        fullScreen: false,
       }}
       style={{
         width: "100%",

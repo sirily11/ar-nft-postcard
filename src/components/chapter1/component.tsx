@@ -1,9 +1,9 @@
 "use client";
 import { BannerLayer, ParallaxBanner } from "react-scroll-parallax";
 import Image from "next/image";
-import { Long_Cang } from "next/font/google";
+import { Ma_Shan_Zheng } from "next/font/google";
 
-const longCang = Long_Cang({
+const font = Ma_Shan_Zheng({
   weight: "400",
   subsets: ["latin"],
 });
@@ -28,8 +28,8 @@ export default function Component({ title }: Props) {
     children: (
       <div className="absolute inset-0 flex items-center justify-center">
         <h1
-          className="text-6xl md:text-8xl text-white text-center p-2"
-          style={{ ...longCang.style }}
+          className="text-5xl md:text-8xl text-white text-center p-2 whitespace-pre"
+          style={{ ...font.style }}
         >
           {title}
         </h1>
@@ -51,6 +51,21 @@ export default function Component({ title }: Props) {
     ),
   };
 
+  const kuromi: BannerLayer = {
+    translateY: [0, 20],
+    children: (
+      <div className={"flex justify-center"}>
+        <Image
+          src={"/assets/kuromi.svg"}
+          alt={"mountain"}
+          width={1000}
+          height={1000}
+          className={"absolute bottom-72 w-64"}
+        />
+      </div>
+    ),
+  };
+
   const gradientOverlay: BannerLayer = {
     opacity: [0, 0.9],
     shouldAlwaysCompleteAnimation: true,
@@ -62,7 +77,7 @@ export default function Component({ title }: Props) {
 
   return (
     <ParallaxBanner
-      layers={[background, headline, foreground, gradientOverlay]}
+      layers={[background, kuromi, headline, foreground, gradientOverlay]}
       className="h-[140vh] bg-gray-900"
     />
   );
