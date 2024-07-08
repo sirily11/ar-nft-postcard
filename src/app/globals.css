@@ -13,3 +13,28 @@ html {
             #aedeff, #a2e7ff,#FFFFFF
     );
 }
+
+
+@keyframes rotateLeftRight {
+    0%, 100% {
+        transform: rotate(0deg);
+    }
+    25% {
+        transform: rotate(-10deg);
+    }
+    50% {
+        transform: rotate(0deg);
+    }
+    75% {
+        transform: rotate(10deg);
+    }
+}
+
+.rotating-object-left-right {
+    animation: rotateLeftRight 2s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite;
+}
+
+.rotating-object-right-left {
+    animation: rotateLeftRight 2s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite;
+    animation-direction: reverse;
+}
