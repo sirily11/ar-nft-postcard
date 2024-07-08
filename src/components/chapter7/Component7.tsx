@@ -11,6 +11,7 @@ import {
   DialogTitle,
 } from "@headlessui/react";
 import { useCallback } from "react";
+import { useWeb3ModalState } from "@web3modal/ethers/react";
 
 type Props = {
   title: string;
@@ -35,6 +36,7 @@ const font = Ma_Shan_Zheng({
 export function Component7(props: Props) {
   const [open, setOpen] = React.useState(false);
   const [chapter, setChapter] = React.useState(0);
+  const { selectedNetworkId } = useWeb3ModalState();
 
   const handleOpen = useCallback(() => {
     setOpen(true);
@@ -52,6 +54,8 @@ export function Component7(props: Props) {
     } else if (chapter === 1) {
       setChapter(2);
     } else if (chapter === 2) {
+      setChapter(3);
+    } else {
       // claim
     }
   }, [chapter]);
@@ -70,29 +74,32 @@ export function Component7(props: Props) {
     translateY: [0, 20],
     opacity: [0, 1, [0, 0, 0, 0]],
     children: (
-      <div className={"flex justify-center items-center h-full"}>
+      <div className={"flex flex-row justify-center items-center h-full"}>
+        {!selectedNetworkId && <w3m-button />}
         {/*button*/}
-        <button
-          className={
-            "w-40 active:scale-125 text-yellow-950 active:text-yellow-800 relative"
-          }
-          onClick={handleOpen}
-        >
-          <Image
-            src={"/assets/button.svg"}
-            alt={"button"}
-            width={300}
-            height={200}
-            className={"absolute z-0 w-full object-contain"}
-          />
-          <div
+        {selectedNetworkId && (
+          <button
             className={
-              "z-10 absolute w-full h-full flex justify-center font-bold mt-1"
+              "w-40 active:scale-125 text-yellow-950 active:text-yellow-800 relative"
             }
+            onClick={handleOpen}
           >
-            <span>{props.claimButton}</span>
-          </div>
-        </button>
+            <Image
+              src={"/assets/button.svg"}
+              alt={"button"}
+              width={300}
+              height={200}
+              className={"absolute z-0 w-full object-contain"}
+            />
+            <div
+              className={
+                "z-10 absolute w-full h-full flex justify-center font-bold mt-1"
+              }
+            >
+              <span>{props.claimButton}</span>
+            </div>
+          </button>
+        )}
       </div>
     ),
   };
