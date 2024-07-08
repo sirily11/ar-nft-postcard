@@ -18,7 +18,7 @@ const font = Ma_Shan_Zheng({
 export function Component5(props: Props) {
   const kuromi: BannerLayer = {
     expanded: false,
-    translateY: [-20, 100],
+    translateY: [-20, 95],
     scale: [0.8, 1.5],
     children: (
       <div className="flex justify-center absolute bottom-[200vh] w-full">
@@ -34,7 +34,7 @@ export function Component5(props: Props) {
   };
 
   const background: BannerLayer = {
-    image: "/assets/cartoon-background.webp",
+    image: "/assets/bg2-small.png",
     speed: -10,
     expanded: true,
   };
