@@ -67,7 +67,7 @@ export function Component7(props: Props) {
   const claimButton: BannerLayer = {
     shouldAlwaysCompleteAnimation: true,
     expanded: true,
-    translateY: [0, 25],
+    translateY: [0, 20],
     opacity: [0, 1, [0, 0, 0, 0]],
     children: (
       <div className={"flex justify-center items-center h-full"}>
@@ -104,7 +104,7 @@ export function Component7(props: Props) {
   };
 
   const headline: BannerLayer = {
-    translateY: [0, 10],
+    translateY: [0, 5],
     scale: [1, 1.05, "easeOutCubic"],
     opacity: [0.9, 1, "easeOutCubic"],
     shouldAlwaysCompleteAnimation: true,
