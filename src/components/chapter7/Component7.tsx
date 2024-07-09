@@ -335,8 +335,19 @@ export function Component7(props: Props) {
               )}
 
               {chapter === 3 && isClaimed && (
-                <div className={"flex justify-center w-full"}>
-                  <span>{props.dialog.success}</span>
+                <div
+                  className={"flex justify-center w-full items-center flex-col"}
+                >
+                  <Image
+                    src={"/assets/done.webp"}
+                    alt={"done"}
+                    width={100}
+                    height={100}
+                    className={"w-72 aspect-auto"}
+                  />
+                  <span className={"font-bold text-green-600"}>
+                    {props.dialog.success}
+                  </span>
                 </div>
               )}
 
