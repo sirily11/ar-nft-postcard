@@ -8,20 +8,12 @@ import { createWeb3Modal, defaultConfig } from "@web3modal/ethers/react";
 export const projectId = "b94d80d977264f4214995a0886ecf384";
 
 // 2. Set chains
-// const mainnet = {
-//   chainId: 1,
-//   name: "Ethereum",
-//   currency: "ETH",
-//   explorerUrl: "https://etherscan.io",
-//   rpcUrl: "https://cloudflare-eth.com",
-// };
-
 const mainnet = {
-  chainId: 23413,
-  name: "Gemini",
-  currency: "AXC",
-  explorerUrl: "https://scan.gemini.axiomesh.io",
-  rpcUrl: "https://rpc5.gemini.axiomesh.io",
+  chainId: 1,
+  name: "Ethereum",
+  currency: "ETH",
+  explorerUrl: "https://etherscan.io",
+  rpcUrl: "https://cloudflare-eth.com",
 };
 
 // 3. Create a metadata object

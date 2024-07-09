@@ -102,7 +102,6 @@ export function Component7(props: Props) {
 
   useEffect(() => {
     if (address && invitationCode) {
-      console.log("checking");
       checkIfUserHasClaimed(address!, invitationCode!)
         .then((r) => {
           setIsClaimed(r);

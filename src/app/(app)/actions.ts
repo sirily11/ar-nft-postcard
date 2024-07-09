@@ -1,8 +1,11 @@
 "use server";
 import { kv } from "@vercel/kv";
 import { UserClaimSchema } from "@/utils/userClaim.schema.";
-import { get } from "@vercel/edge-config";
+import { Resend } from "resend";
 import { Environments } from "@/app/environments";
+import { get } from "@vercel/edge-config";
+
+const resend = new Resend(Environments.EmailApiKey);
 
 export async function getKey(userAddress: string, invitationCode: string) {
   return `${userAddress}:${invitationCode}`;
@@ -17,7 +20,6 @@ export async function checkIfUserHasClaimed(
   userAddress: string,
   invitationCode: string,
 ): Promise<boolean> {
-  console.log("Checking if user has claimed");
   const key = await getKey(userAddress, invitationCode);
   if (!(await kv.exists(key))) {
     return false;
@@ -55,7 +57,21 @@ export async function claim(userAddress: string, invitationCode: string) {
     };
   }
   await setClaimed(userAddress, invitationCode);
+  const receiver = await get<string>("notification-receiver");
+  console.log(`Sending email to ${receiver}`);
   // send reward
-  await new Promise((resolve) => setTimeout(resolve, 4000));
+  await resend.emails
+    .send({
+      from: "AR NFT System <noreply@noreply.rxbot.dev>",
+      to: receiver!,
+      subject: "Someone claimed the reward",
+      text: `${userAddress} claimed the reward`,
+    })
+    .then(() => {
+      console.log("Email sent");
+    })
+    .catch((e) => {
+      console.error(e);
+    });
   return;
 }
