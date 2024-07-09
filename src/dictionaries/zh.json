@@ -18,5 +18,9 @@
   "dialog-content4": "\"林彦君，25岁生日快乐！愿你的人生如这蛋糕一般甜美精彩！\"",
   "dialog-button": "领取",
   "dialog-button2": "关闭",
-  "dialog-button3": "上一页"
+  "dialog-button3": "上一页",
+  "check-wallet-button": "查看钱包",
+  "done-button": "完成",
+  "success-title": "领取成功",
+  "check-in-ar": "在AR中浏览"
 }

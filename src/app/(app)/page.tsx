@@ -6,9 +6,11 @@ import { Component4 } from "@/components/chapter4/Component";
 import { Component5 } from "@/components/chapter5/Component5";
 import { Component6 } from "@/components/chapter6/Component6";
 import { Component7 } from "@/components/chapter7/Component7";
+import { get } from "@vercel/edge-config";
 
-export default async function Page() {
+export default async function Page({ params }: any) {
   const translation = await getDictionary("zh");
+  const arlink = await get<string>("arlink");
 
   return (
     <main className="flex">
@@ -41,7 +43,12 @@ export default async function Page() {
             description3: translation["dialog-content3"],
             description4: translation["dialog-content4"],
             previous: translation["dialog-button3"],
+            done: translation["done-button"],
+            success: translation["success-title"],
           }}
+          checkWallet={translation["check-wallet-button"]}
+          checkInAr={translation["check-in-ar"]}
+          arlink={arlink!}
         />
       </div>
     </main>
